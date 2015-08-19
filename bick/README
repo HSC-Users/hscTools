@@ -1,7 +1,11 @@
 
 #### showRerun.py
 
-Show some metadata information for the visits in a specified rerun.  This script uses a DATA_PATH environment variable, so you can specify a few of your favourite data repos and just type the remaining part of the rerun. It has to load the metadata from the calexp (it will try postISRCCD if it can't find calexp), so it's a bit slow to run.
+Show some metadata information for the visits in a specified rerun.
+This script uses a DATA_PATH environment variable, so you can specify
+a few of your favourite data repos and just type the remaining part of
+the rerun. It has to load the metadata from the calexp (it will try
+postISRCCD if it can't find calexp), so it's a bit slow to run.
 
 E.g.
 
@@ -21,11 +25,11 @@ Visit   F   Date       HST       Target            RA         Dec        ExpTim 
 
 #### showVisitsInTract.py
 
-This will generate a figure showing each input visit in a separate panel.  Panels have the same scale
-and range.
+This will generate a figure showing each input visit in a separate
+panel.  Panels have the same scale and range.
 
-Warning: This can be extremely slow.  It needs to load the input info for each patch requested, and
-then the ccd positions for each visit.
+Warning: This can be extremely slow.  It needs to load the input info
+for each patch requested, and then the ccd positions for each visit.
 
 E.g.
 
@@ -34,8 +38,8 @@ $ showVisitsInTract.py /lustre/Subaru/SSP/rerun/bick/cosmos333 0 -v 1230..1238:2
 
 #### visitOverlap.py
 
-This will show the footprints of the requested visits with a low alpha parameter so the overlap
-can easily be seen.
+This will show the footprints of the requested visits with a low alpha
+parameter so the overlap can easily be seen.
 
 E.g. 
 
@@ -55,7 +59,8 @@ $ showVisit.py cosmos333 1236 41^42^49^50^57^58 -s histeq -d calexp
 
 #### camPlot.py
 
-Show per-CCD values listed in a text file as a focal plane image.  CCD is column 1, value is column 2, and (optionally) amp is column 3.
+Show per-CCD values listed in a text file as a focal plane image.  CCD
+is column 1, value is column 2, and (optionally) amp is column 3.
 
 E.g.
 
@@ -82,8 +87,8 @@ $ mtv.py file.fits
 
 #### ptest.sh
 
-Print a summary of the unit tests, assuming LSST/HSC style unit testing (test results written in
-<pkg>/tests/.tests/
+Print a summary of the unit tests, assuming LSST/HSC style unit
+testing (test results written in <pkg>/tests/.tests/)
 
 
 E.g.
@@ -93,17 +98,19 @@ $ ptest.sh
 
 #### showpbs.py
 
-Show the cluster usage with an ascii graph.  Each node is shown on one line, and different user's
-are indicated with the first character of their UID.
+Show the cluster usage with an ascii graph.  Each node is shown on one
+line, and different user's are indicated with the first character of
+their UID.
 
 $ showpbs.py
 
 
 #### pyng.py
 
-Ping multiple machines and show results in bulk.  This uses python multiprocessing, and subprocess
-to run the system ping command for each requested node.  This is useful after rebooting nodes as
-it lets you see which nodes are coming up.
+Ping multiple machines and show results in bulk.  This uses python
+multiprocessing, and subprocess to run the system ping command for
+each requested node.  This is useful after rebooting nodes as it lets
+you see which nodes are coming up.
 
 # on master ... 192.168.0.101 to 192.168.0.140
 $ pyng.py -a -c -t -s 101 192.168.0 40
