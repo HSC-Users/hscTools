@@ -29,13 +29,14 @@ class Visit(object):
         self.coord = coord
         
     def addCalexp(self, calexp):
+        pixelScale = 0.168  # arcsec/pix on HSC
         self.exptime = calexp.get("EXPTIME")
         self.filter  = calexp.get("FILTER")
         self.obj     = calexp.get("OBJECT")
         self.dateobs = calexp.get("DATE-OBS")
         self.boresight = afwCoord.Fk5Coord(calexp.get("RA2000"), calexp.get("DEC2000"))
         self.hst     = calexp.get("HST")
-        self.seeing  = calexp.get("SEEING")
+        self.seeing  = float(calexp.get("SEEING_MODE"))*pixelScale
         self.rot     = 0.5*(calexp.get("INR-STR") + calexp.get("INR-END"))
         yy, mm, dd = map(int, self.dateobs.split("-"))
         jd = meeus.calendar2JD(yy, mm, dd)
@@ -63,7 +64,7 @@ class Visit(object):
         values = (self.visit, self.filter, self.dateobs, self.hst[0:8],
                   self.obj, ra.asDegrees(), dec.asDegrees(),
                   self.exptime, self.seeing, self.moon_phase, self.rot)
-        return "%7d %-2s  %10s %8s  %-16s  %10.6f %9.6f  %6s  %4s  %5.3f  %4.0f" % values
+        return "%7d %-2s  %10s %8s  %-16s  %10.6f %9.6f  %6s  %4.2f  %5.3f  %4.0f" % values
 
     
 #############################################################
