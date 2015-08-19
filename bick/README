@@ -1,4 +1,23 @@
 
+#### showRerun.py
+
+Show some metadata information for the visits in a specified rerun.  This script uses a DATA_PATH environment variable, so you can specify a few of your favourite data repos and just type the remaining part of the rerun. It has to load the metadata from the calexp (it will try postISRCCD if it can't find calexp), so it's a bit slow to run.
+
+E.g.
+
+$ export DATA_PATH=/lustre/Subaru/SSP/rerun/bick:/lustre/Subaru/SSP/rerun/yasuda
+$ showRerun.py cosmos333
+Output:  calexp
+Visit   F   Date       HST       Target            RA         Dec        ExpTim  FWHM  Moon   Rot
+    242 y   2014-03-25 20:15:02  COSMOS            150.118750  2.205822   240.0   0.0  0.395   -56
+    244 y   2014-03-25 20:19:50  COSMOS            150.160462  2.164133   240.0   0.0  0.395   -55
+    246 y   2014-03-25 20:25:09  COSMOS            150.202162  2.226658   240.0   0.0  0.395   -54
+    248 y   2014-03-25 20:29:52  COSMOS            150.077062  2.247467   240.0   0.0  0.395   -53
+    250 y   2014-03-25 20:34:34  COSMOS            150.035358  2.184978   240.0   0.0  0.395   -52
+    252 y   2014-03-25 20:41:43  FOCUS             150.118725  2.215597    10.0   0.0  0.395   -50
+    254 y   2014-03-25 20:44:35  COSMOS            150.110412  2.201642   240.0   0.0  0.395   -49
+    256 y   2014-03-25 20:49:52  COSMOS            150.152117  2.159986   240.0   0.0  0.395   -47
+
 
 #### showVisitsInTract.py
 
